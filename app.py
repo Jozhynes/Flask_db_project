@@ -15,8 +15,10 @@ def product():
        myproducts=Products(productname,description)
        session.add(myproducts)
        session.commit()
+    myitems=session.query(Products).all()
+
        
-       
-    return render_template('products.html')
+    return render_template('products.html', myitems=myitems)
+   
 if __name__=="__main__":
  app.run(debug=True)
